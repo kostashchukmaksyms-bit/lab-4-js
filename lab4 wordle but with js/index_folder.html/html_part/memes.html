@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меми Wordle</title>
+    <!-- Підключаємо файли css -->
+    <link rel="stylesheet" href="../css_part/style.css">
+    <link rel="stylesheet" href="../css_part/memes.css">
+    <link rel="stylesheet" href="../css_part/signin.css">
+</head>
+<body>
+
+    <!-- 1. Чекбокс і кнопка Sign In (додано id="signin-btn") -->
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+    <label for="modal-toggle" class="signin-btn" id="signin-btn">SIGN IN</label>
+
+    <!-- 2. Модальне вікно перенесено сюди (під кнопку) і додано onsubmit -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="close-modal">&times;</label>
+            <h2>Авторизація</h2>
+            <form onsubmit="login(event)">
+                <label class="form-label" for="username">Логін або Email:</label>
+                <input type="text" id="username" required placeholder="Введіть логін">
+                
+                <label class="form-label" for="password">Пароль:</label>
+                <input type="password" id="password" required placeholder="Введіть пароль">
+                
+                <button type="submit">Увійти</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="top-nav"></div>
+
+    <!-- Логотип у лівому верхньому куті -->
+    <a href="index.html" class="top-left-logo">
+        <div class="mini-grid">
+            <div class="mini-box"></div><div class="mini-box green"></div><div class="mini-box"></div>
+            <div class="mini-box green"></div><div class="mini-box green"></div><div class="mini-box"></div>
+            <div class="mini-box green"></div><div class="mini-box green"></div><div class="mini-box green"></div>
+        </div>
+        <div>
+            WORDLE<br>
+            <span style="font-size: 0.7rem; font-weight: normal; font-family: Arial, sans-serif;">FAN SITE</span>
+        </div>
+    </a>
+
+    <!-- Кнопка повернення на головну сторінку у стилі бульбашок -->
+    <div class="menu-container" style="margin-bottom: 20px;">
+        <a href="index.html" class="word-row">
+            <div class="letter">Н</div><div class="letter">А</div><div class="letter">З</div><div class="letter">А</div><div class="letter">Д</div>
+        </a>
+    </div>
+
+    <h1>Меми Wordle</h1>
+
+    <!-- Сітка для мемів (CSS Grid) -->
+    <div class="memes-grid">
+
+        <!-- Мем 1 -->
+        <div class="meme-card">
+            <img src="../pictures_archive/wordle_meme_1.jfif" alt="Мем 1">
+            <div>Коли вгадав усі букви, крім однієї</div>
+        </div>
+
+        <!-- Мем 2 -->
+        <div class="meme-card">
+            <img src="../pictures_archive/wordle_meme_2.jfif" alt="Мем 2">
+            <div>Типова спроба на 6-му рядку</div>
+        </div>
+
+        <!-- Мем 3 -->
+        <div class="meme-card">
+            <img src="../pictures_archive/wordle_meme_3.jfif" alt="Мем 3">
+            <div>Коли перше слово дало всі сірі клітинки</div>
+        </div>
+
+        <!-- Мем 4 -->
+        <div class="meme-card">
+            <img src="../pictures_archive/wordle_meme_4.jfif" alt="Мем 4">
+            <div>Очікування vs Реальність</div>
+        </div>
+
+        <!-- Мем 5 -->
+        <div class="meme-card">
+            <img src="../pictures_archive/wordle_meme_5.jfif" alt="Мем 5">
+            <div>Перемога з першої спроби!</div>
+        </div>
+
+    </div>
+
+    <a href="#top-nav" class="scroll-top-btn" title="Наверх">&#9650;</a>
+
+    <!-- 3. Підключення скрипта в кінці файлу -->
+    <script src="../scripts/script.js"></script>
+
+</body>
+</html>
