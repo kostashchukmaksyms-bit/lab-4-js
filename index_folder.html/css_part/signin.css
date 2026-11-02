@@ -1,0 +1,140 @@
+/* Стилі для кнопки Sign In */
+.signin-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Чітко скраю праворуч */
+    background-color: var(--wordle-green, #6aaa64);
+    color: white;
+    border: 2px solid #538d4e;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 0.7rem;
+    transition: background-color 0.2s, transform 0.2s;
+    z-index: 20;
+    line-height: 1;
+}
+
+.signin-btn:hover {
+    background-color: #538d4e;
+    transform: scale(1.05);
+}
+
+/* На мобільних пристроях робимо фіксованою (вимога лабораторної) */
+@media (max-width: 768px) {
+    .search-box {
+        display: none; /* Ховаємо пошук на мобільних, щоб не захаращувати шапку */
+    }
+    
+.signin-btn {
+    position: fixed; /* або absolute, залежно від твого дизайну */
+    top: 20px;
+    right: 20px;
+    z-index: 99999; /* гарантує, що кнопка буде поверх усіх інших елементів */
+    cursor: pointer;
+}
+}
+
+/* Повністю ховаємо стандартний чекбокс */
+.modal-checkbox {
+    display: none;
+}
+
+/* Коли чекбокс з id="modal-toggle" відзначено, показуємо сусіднє модальне вікно */
+#modal-toggle:checked ~ .modal-overlay {
+    display: flex !important;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 380px;
+    border: 3px solid #878a8c;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    text-align: left;
+    position: relative;
+    animation: modalPop 0.3s ease;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes modalPop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: #1a1a1b;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.modal-content label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #d3d6da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+}
+
+.modal-content button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #6aaa64;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #538d4e;
+}
+/*Якщо тобі потрібно, щоб після введення логіна кнопка зверху змінювалася (наприклад, на твоє ім'я) і сайт пам'ятав, що ти увійшов — на чистому CSS це зробити неможливо. Для збереження даних між сторінками та перезавантаженнями обов'язково потрібен мінімальний шматок JavaScript (те саме сховище localStorage, яке ми використовували на самому початку).*/

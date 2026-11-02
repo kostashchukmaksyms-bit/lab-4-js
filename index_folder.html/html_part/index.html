@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт у стилі Wordle</title>
+    <link rel="stylesheet" href="../css_part/style.css">
+    <link rel="stylesheet" href="../css_part/memes.css">    
+    <link rel="stylesheet" href="../css_part/signin.css">
+</head>
+<body>
+
+    <!-- 1. Чекбокс і кнопка Sign In на чистому CSS -->
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+    <label for="modal-toggle" class="signin-btn" id="signin-btn">SIGN IN</label>
+
+    <!-- 2. Єдине модальне вікно на чистому CSS (відкривається чекбоксом) -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="close-modal">&times;</label>
+            <h2>Авторизація</h2>
+                    <form>
+            <label class="form-label" for="username">Логін або Email:</label>
+            <input type="text" id="username" required placeholder="Введіть логін">
+            
+            <label class="form-label" for="password">Пароль:</label>
+            <input type="password" id="password" required placeholder="Введіть пароль">
+            
+            <!-- Ось цей блок з двома кнопками -->
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button type="submit" onclick="login(event)" style="flex: 1; margin-top: 0;">Увійти</button>
+                <button type="button" onclick="register(event)" style="flex: 1; background-color: #878a8c; margin-top: 0;">Реєстрація</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <div id="top-nav"></div>
+
+    <a href="index.html" class="top-left-logo">
+        <div class="mini-grid">
+            <div class="mini-box"></div><div class="mini-box green"></div><div class="mini-box"></div>
+            <div class="mini-box green"></div><div class="mini-box green"></div><div class="mini-box"></div>
+            <div class="mini-box green"></div><div class="mini-box green"></div><div class="mini-box green"></div>
+        </div>
+        <div>
+            WORDLE<br>
+            <span style="font-size: 0.7rem; font-weight: normal; font-family: Arial, sans-serif;">FAN SITE</span>
+        </div>
+    </a>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <span class="search-icon">&#128269;</span>
+    </div>
+
+    <div class="menu-container">
+        
+        <a href="index.html" class="word-row">
+            <div class="letter">С</div><div class="letter">Т</div><div class="letter">А</div><div class="letter">Р</div><div class="letter">Т</div>
+        </a>
+
+        <a href="about.html" class="word-row">
+            <div class="letter">А</div><div class="letter">В</div><div class="letter">Т</div><div class="letter">О</div><div class="letter">Р</div>
+        </a>
+
+        <div class="dropdown-wrapper">
+            <a href="photo.html" class="word-row">
+                <div class="letter">Ф</div><div class="letter">О</div><div class="letter">Т</div><div class="letter">О</div>
+                <div class="letter">&#9662;</div>
+            </a>
+            <div class="submenu">
+                <a href="memes.html">Меми Wordle</a>
+                <a href="photo.html">Мої скріншоти</a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Архів картинок</a>
+            </div>
+        </div>
+
+        <a href="blog.html" class="word-row">
+            <div class="letter">Б</div><div class="letter">Л</div><div class="letter">О</div><div class="letter">Г</div>
+        </a>
+
+        <a href="https://uakino.best/cartoon/features/1248-medova-zmova.html" target="_blank" class="word-row">
+            <div class="letter">Ф</div><div class="letter">О</div><div class="letter">Р</div><div class="letter">М</div><div class="letter">А</div>
+        </a>
+
+    </div>
+
+    <img src="../pictures_archive/image_1996a2.jpg" alt="Моє головне фото" class="main-photo">
+
+    <div class="feedback-section animated-block">
+        <h2>Відгуки гравців Wordle</h2>
+        <div class="feedback-grid">
+            <div class="feedback-card">
+                <h4>Максим</h4>
+                <p>«Чудовий сайт! Дуже атмосферний дизайн у стилі улюбленої гри. Мемчики просто супер!»</p>
+            </div>
+            <div class="feedback-card">
+                <h4>Олена</h4>
+                <p>«Зручна навігація, а окреме модальне вікно для входу зроблено дуже охайно й професійно.»</p>
+            </div>
+            <div class="feedback-card">
+                <h4>Андрій</h4>
+                <p>«Круто, що адаптується під телефон — кнопка Sign In завжди під рукою.»</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --wordle-green: #6aaa64;
+    --wordle-gray-light: #d3d6da;
+    --wordle-gray-dark: #878a8c;
+    --wordle-red: #e05a5a;
+    --bg-color: #f8f9fa;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /*font-family: Arial, sans-serif;*/
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+    background-color: var(--bg-color);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' opacity='0.15'%3E%3Crect x='10' y='10' width='40' height='40' fill='%236aaa64' rx='5'/%3E%3Crect x='70' y='10' width='40' height='40' fill='%23d3d6da' rx='5'/%3E%3Crect x='10' y='70' width='40' height='40' fill='%23878a8c' rx='5'/%3E%3Crect x='70' y='70' width='40' height='40' fill='%23e05a5a' rx='5'/%3E%3C/svg%3E");
+}
+
+
+/* Логотип у лівому верхньому куті */
+.top-left-logo {   
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;                                                    
+    font-size: 2rem; 
+    line-height: 1;
+    color: black;
+    text-decoration: none;
+}
+
+.mini-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 10px);
+    gap: 2px;
+}
+
+.mini-box {
+    width: 10px;
+    height: 10px;
+    background-color: var(--wordle-gray-light);
+    border: 1px solid var(--wordle-gray-dark);
+}
+
+.mini-box.green {
+    background-color: var(--wordle-green);
+    border-color: var(--wordle-green);
+}
+
+/* Поле пошуку (зсунуто вліво, щоб не перекривати Sign In) */
+.search-box {
+    position: absolute;
+    top: 20px;
+    right: 170px; /* Зсунули лівіше від кнопки Sign In */
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid #b8b8b8;
+    border-radius: 25px;
+    padding: 6px 15px;
+    width: 180px;
+    z-index: 10;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.85rem;
+    color: #555;
+    font-family: Arial, sans-serif;
+}
+
+.search-icon {
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Контейнер меню */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px; 
+    margin-bottom: 40px;
+    margin-top: 50px; 
+}
+
+.word-row {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 8px; 
+    text-decoration: none;
+    color: black;
+    width: 332px;
+}
+
+.letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background-color: var(--wordle-gray-light); 
+    border: 2px solid var(--wordle-gray-dark);
+    border-radius: 5px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s; 
+}
+
+.word-row:hover .letter {
+    background-color: var(--wordle-green); 
+    border-color: var(--wordle-green);
+    color: white;
+}
+
+/* Випадне підменю */
+.dropdown-wrapper {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 10px;
+    background-color: #d8d3e8;
+    border: 2px solid var(--wordle-gray-dark);
+    border-radius: 6px;
+    width: 160px;
+    display: none;
+    flex-direction: column;
+    z-index: 50;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Невидимий місток, який тримає меню відкритим при переведенні мишки */
+.submenu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -15px;
+    width: 15px;
+    height: 100%;
+}
+
+.submenu a {
+    padding: 10px 12px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-align: left;
+    border-bottom: 1px solid #c5bedb;
+    transition: 0.2s;
+}
+
+.submenu a:nth-child(2) {
+    background-color: #efeae6;
+}
+
+.submenu a:hover {
+    background-color: var(--wordle-green);
+    color: white;
+}
+
+.dropdown-wrapper:hover .submenu {
+    display: flex;
+}
+
+/* Чітке фото по центру без прозорості */
+.main-photo {
+    display: block;
+    margin: 20px auto; /* Автоматично центрує фото по горизонталі */
+    max-width: 100%;
+    width: 600px;
+    opacity: 1 !important; /* Гарантовано прибирає прозорість */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Кнопка навігації вгору */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--wordle-green);
+    color: white;
+    border: 2px solid #4e8249;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.scroll-top-btn:hover {
+    background-color: #538d4e;
+    transform: scale(1.1);
+}
+
+/* Умова 1: Медіа-запити для гнучкості дизайну */
+@media (max-width: 900px) {
+    body {
+        padding: 15px;
+    }
+    .top-left-logo {
+        font-size: 1.5rem;
+    }
+}
+
+/* Умова 5: Плавний перехід для кнопки вгору вже реалізовано через transition, додаємо анімацію наведення */
+.scroll-top-btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Умова 7: Анімація для елементів сторінки */
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated-block {
+    animation: fadeInSlide 0.8s ease-out forwards;
+}
+
+/* Умова 6: Секція зворотного зв'язку (відгуки користувачів) */
+.feedback-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffff;
+    border: 3px solid var(--wordle-gray-dark);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.feedback-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #1a1a1b;
+}
+
+.feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feedback-card {
+    background: var(--wordle-gray-light);
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #878a8c;
+    text-align: left;
+}
+
+.feedback-card h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+    color: #1a1a1b;
+}
+
+.feedback-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.4;
+    font-family: Arial, sans-serif;
+}

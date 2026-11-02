@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Підтримка</title>
+    <link rel="stylesheet" href="../css_part/style.css">
+    <link rel="stylesheet" href="../css_part/memes.css">
+    <link rel="stylesheet" href="../css_part/signin.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 30px; 
+            background-color: #ffffff;
+        }
+        
+        .back-btn { 
+            display: inline-flex; 
+            gap: 5px; 
+            text-decoration: none; 
+            color: black; 
+            margin-bottom: 30px;
+        }
+        .letter { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            width: 40px; 
+            height: 40px; 
+            background-color: #d3d6da; 
+            border: 2px solid #878a8c; 
+            border-radius: 5px; 
+            font-size: 20px; 
+            font-weight: bold; 
+        }
+        .back-btn:hover .letter { 
+            background-color: #878a8c; 
+            color: white; 
+        }
+        
+        .support-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .support-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .support-form input, .support-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: #6aaa64;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        .submit-btn:hover {
+            background-color: #538d4e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Чекбокс і кнопка Sign In (додано id="signin-btn") -->
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+    <label for="modal-toggle" class="signin-btn" id="signin-btn">SIGN IN</label>
+
+    <!-- 2. Модальне вікно перенесено сюди (під кнопку) і додано onsubmit -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="close-modal">&times;</label>
+            <h2>Авторизація</h2>
+            <form onsubmit="login(event)">
+                <label class="form-label" for="username">Логін або Email:</label>
+                <input type="text" id="username" required placeholder="Введіть логін">
+                
+                <label class="form-label" for="password">Пароль:</label>
+                <input type="password" id="password" required placeholder="Введіть пароль">
+                
+                <button type="submit">Увійти</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">
+        <div class="letter">Н</div><div class="letter">А</div><div class="letter">З</div><div class="letter">А</div><div class="letter">Д</div>
+    </a>
+
+    <h1>Служба підтримки</h1>
+    <p>Маєте запитання? Напишіть нам!</p>
+
+    <div class="support-form">
+        <form action="#" method="get">
+            <label for="support-name">Ваше ім'я:</label>
+            <input type="text" id="support-name" name="username" placeholder="Введіть логін або ім'я" required>
+
+            <label for="support-email">Електронна пошта:</label>
+            <input type="email" id="support-email" name="email" placeholder="example@mail.com" required>
+
+            <label for="support-message">Повідомлення:</label>
+            <textarea id="support-message" name="message" rows="5" placeholder="Опишіть вашу проблему..." required></textarea>
+
+            <button type="submit" class="submit-btn">ВІДПРАВИТИ</button>
+        </form>
+    </div>
+
+    <!-- 3. Підключення скрипта -->
+    <script src="../scripts/script.js"></script>
+
+</body>
+</html>

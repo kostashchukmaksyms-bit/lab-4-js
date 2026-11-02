@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про автора</title>
+    <!-- Усі стилі обов'язково мають бути всередині head -->
+    <link rel="stylesheet" href="../css_part/style.css">
+    <link rel="stylesheet" href="../css_part/memes.css">
+    <link rel="stylesheet" href="../css_part/signin.css">
+</head>
+<body>
+
+    <!-- 1. Чекбокс і кнопка Sign In (додано id="signin-btn") -->
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+    <label for="modal-toggle" class="signin-btn" id="signin-btn">SIGN IN</label>
+
+    <!-- 2. Модальне вікно перенесено сюди (під кнопку) і додано onsubmit -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="close-modal">&times;</label>
+            <h2>Авторизація</h2>
+            <form onsubmit="login(event)">
+                <label class="form-label" for="username">Логін або Email:</label>
+                <input type="text" id="username" required placeholder="Введіть логін">
+                
+                <label class="form-label" for="password">Пароль:</label>
+                <input type="password" id="password" required placeholder="Введіть пароль">
+                
+                <button type="submit">Увійти</button>
+            </form>
+        </div>
+    </div>
+
+    <h1>Це сторінка про автора!</h1>
+
+    <img src="../pictures_archive/1486189586446155888.webp" alt="лайк підписка колокіл" class="like-subscribe-bell">
+
+    <!-- 3. Підключення скрипта в кінці файлу -->
+    <script src="../scripts/script.js"></script>
+
+</body>
+</html>
