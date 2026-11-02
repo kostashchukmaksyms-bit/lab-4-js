@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мої Фото</title>
+    <link rel="stylesheet" href="../css_part/style.css">
+    <link rel="stylesheet" href="../css_part/memes.css">
+    <link rel="stylesheet" href="../css_part/signin.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 30px; }
+        
+        .back-btn { display: inline-flex; gap: 5px; text-decoration: none; color: black; margin-bottom: 30px;}
+        .letter { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background-color: #d3d6da; border: 2px solid #878a8c; border-radius: 5px; font-size: 20px; font-weight: bold; }
+        .back-btn:hover .letter { background-color: #878a8c; color: white; }
+        
+        .my-image { max-width: 80%; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Прихований чекбокс та кнопка SIGN IN (додано id="signin-btn") -->
+    <input type="checkbox" id="modal-toggle" class="modal-checkbox">
+    <label for="modal-toggle" class="signin-btn" id="signin-btn">SIGN IN</label>
+
+    <!-- 2. Модальне вікно перенесено сюди (під кнопку) і додано onsubmit -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <label for="modal-toggle" class="close-modal">&times;</label>
+            <h2>Авторизація</h2>
+            <form onsubmit="login(event)">
+                <label class="form-label" for="username">Логін або Email:</label>
+                <input type="text" id="username" required placeholder="Введіть логін">
+                
+                <label class="form-label" for="password">Пароль:</label>
+                <input type="password" id="password" required placeholder="Введіть пароль">
+                
+                <button type="submit">Увійти</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">
+        <div class="letter">Н</div><div class="letter">А</div><div class="letter">З</div><div class="letter">А</div><div class="letter">Д</div>
+    </a>
+
+    <section id="top-nav"></section>
+    <h1>Галерея</h1>
+    
+    <p>Ось моя фотографія:</p>
+
+    <img src="../pictures_archive/завантаження (1).jfif" alt="Моє головне фото" class="main-photo">
+    <img src="../pictures_archive/завантаження.jfif" alt="Фото з вебу" class="main-photo">
+    <img src="../pictures_archive/c755bd501c42746fbd07f058d4edcee2.jpeg" alt="Завантажене фото" class="main-photo">
+    <img src="../pictures_archive/1486189586446155888.webp" alt="Інше завантажене фото" class="main-photo">
+
+    <a href="#top-nav" class="scroll-top-btn" title="Наверх">&#9650;</a>
+
+    <!-- 3. Підключення скрипта -->
+    <script src="../scripts/script.js"></script>
+
+</body>
+</html>
